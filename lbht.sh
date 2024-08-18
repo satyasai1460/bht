@@ -1,5 +1,5 @@
 #!/bin/bash
-apt update && apt install -y unzip jq && mkdir -p /root/bughunting
+apt update && apt install -y unzip jq curl git && mkdir -p /root/bughunting
 cd /root && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 cd /root && unzip awscliv2.zip && rm -rf awscliv2.zip
 cd /root && sudo ./aws/install
@@ -13,6 +13,6 @@ cd /root/BHA && chmod 777 *
 cd /root/BHA && ./go-lang-tool.sh
 source ~/.bashrc
 cp /root/BHA/striker /root/BHA/bhtools /usr/local/bin
-cat /root/BHA/alias.txt >> ~/.bashrc
+cat /root/BHA/alias.txt >>~/.bashrc
 sudo bhtools
 echo "* * * * * sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'" | crontab -
